@@ -1,0 +1,52 @@
+﻿@** Define a rota do componente*@
+@page "/recuperar-senha"
+
+@**Bibliotecas da página*@
+@using AppContas.Web.Requests
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 px-4">
+        <div class="card">
+            <div class="clard-body">
+                <div class="text-center">
+                    <h2>Recuperar senha</h2>
+                    <p>Preencha os campos para recuperar sua senha</p>
+                </div>
+                <hr />
+
+                @** Componente para criação de formulários*@
+                <EditForm Model="@request" OnValidSubmit="@OnSubmit">
+
+                    @** Componente para ativar as validações baseadas em DataAnnotacions*@
+                    <DataAnnotationsValidator />
+
+                    <div class="mb-2 px-4 pb-4">
+                        <label>Email:</label>
+                        <InputText class="form-control" @bind-Value="request.Email" />
+                        <span class="text-danger">
+                            <ValidationMessage For="@(() => request.Email)" />
+                        </span>
+                    </div>
+                    <div class="mb-2 px-4">
+                        <div class="d-grid">
+                            <input type="submit" class="btn btn-primary" value="Confirmar" />
+                        </div>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@** Código C# do componente*@
+@code {
+    //declarar o objeto que será utilizado para capturar o formulário
+    private RecuperarSenhaRequest request = new RecuperarSenhaRequest();
+
+    //metódo para capturar o evento de submit do formulário
+    protected async Task OnSubmit()
+    {
+
+    }
+}
