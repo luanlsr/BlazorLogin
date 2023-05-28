@@ -1,5 +1,11 @@
 ﻿@inherits LayoutComponentBase
 
+@using AppContas.Web.Services;
+
+@inject AuthService Auth;
+@inject NavigationManager Navigation;
+@inject IJSRuntime JsRuntime;
+
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -7,6 +13,14 @@
 
     <main>
         <div class="top-row px-4">
+            @if (isAuthenticated)
+            {
+                    <div>@usuario.Nome</div>
+                <span>&nbsp;&nbsp;</span>
+                    <button onclick="@Logout" class="btn btn-sm btn-secondary">
+                        Sair do sistema
+                    </button>
+            }
         </div>
 
         <article class="content px-4">
@@ -14,3 +28,35 @@
         </article>
     </main>
 </div>
+
+@code {
+    private bool isAuthenticated = false;
+    private UsuarioResponse usuario;
+
+    //função executada sempre que o componente for carregado
+    protected override async Task OnInitializedAsync()
+    {
+        // verificar se o usuário está autenticado
+        isAuthenticated = await Auth.IsSigningIn();
+
+        //capturar os dados do usuario
+        if (isAuthenticated)
+        {
+            var data = await Auth.GetData();
+            usuario = data.Usuario;
+        }
+    }
+
+    //função para logout do usuário
+    private async Task Logout()
+    {
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Deseja realmente sair do sistema?");
+        if (confirmed)
+        {
+            Auth.SignOut();        
+            isAuthenticated = false;
+            Navigation.NavigateTo("/", true);
+        }
+
+    }
+}

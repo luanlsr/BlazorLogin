@@ -1,14 +1,15 @@
 ﻿@** Define a rota do componente*@
 @page "/"
+@using AppContas.Web.Services;
 
 @**Bibliotecas da página*@
-@using AppContas.Web.Pages.Components
-@using AppContas.Web.Requests
-@using AppContas.Web.Responses;
+
 
 @**Injeções de dependências*@
 @inject HttpClient Http
 @inject IJSRuntime JsRuntime;
+@inject AuthService Auth;
+@inject NavigationManager Navigation;
 
 <div class="row">
     <div class="col-md-6 offset-md-3 px-4">
@@ -20,9 +21,8 @@
                 </div>
                 <hr />
 
-                <div class="text-center mb-2">
+               <div class="text-center mb-2">
                     <Loading IsLoading=isLoading >
-                        <strong class="text-success">@mensagemSucesso</strong>
                         <strong class="text-danger">@mensagemErro</strong>
                     </Loading>
                 </div>
@@ -99,17 +99,14 @@
         //verificando a resposta obtida
         if (response.IsSuccessStatusCode)
         {
-            await JsRuntime.InvokeVoidAsync("console.log", response);
-            //await JsRuntime.InvokeAsync<string>("alert", "OK!");
-            mensagemSucesso = content.Mensagem;
-            request = new AutenticarRequest(); //limpando os campos do formulário
-
+            //await JsRuntime.InvokeVoidAsync("console.log", response);
+            Auth.SignIn(content);
+            Navigation.NavigateTo("/admin/dashboard", true);
         }
         else
         {
+            //await JsRuntime.InvokeVoidAsync("console.log", response);
             mensagemErro = content.Mensagem;
-            await JsRuntime.InvokeVoidAsync("console.log", response);
-            //await JsRuntime.InvokeAsync<string>("alert", "Erro!");
         }
         isLoading = false;
 

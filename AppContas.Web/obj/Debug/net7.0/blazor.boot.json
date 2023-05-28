@@ -7,6 +7,9 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "BlazorBootstrap.dll": "sha256-ttbPmxdYWC7ela7jRLatfmuY2MJrtHfTQGPLjKspfJI=",
+      "Blazored.LocalStorage.dll": "sha256-eXVgTw72kEn74FZgDQbLtvAmXbiZDSj5gzUnxVmwowQ=",
+      "Blazored.Toast.dll": "sha256-6wGoA8FmxkQCTFIXEM+U+Y2kJJnSTJXRYwuByAUPWGU=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-\/EkWRHMHBhfvvlx5hLVtXGPm8+Gyp4WkPiKKiiJIrqQ=",
       "Microsoft.AspNetCore.Components.dll": "sha256-SvjxqyTqc68zPsYivPRkvjKRhUg5zYufzqwGNS83bwg=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-eoQ2CgfBGkvbK4QUMBgFDPIBqJem+g8247Fb3ZmnmCI=",
@@ -29,6 +32,7 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-q4ruoDSCjV\/QJY9ZkzV6uxvEvZUVrDbyUjU3SSh5SlE=",
       "Microsoft.JSInterop.dll": "sha256-OBt2YgODs1L5bJWrDjUFgcgGMUjDfmFTHCt9t69RxgU=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-GH0zLXwtZcak53A9656ZndP15W57wd1W0kLvKDIV+VE=",
+      "Newtonsoft.Json.dll": "sha256-IsZJ91\/OW+fHzNqIgEc7Y072ns8z9dGritiSyvR9Wgc=",
       "System.IO.Pipelines.dll": "sha256-P\/MqD0fCBd5bgTM16JC1QC\/Zz7s+CwViyzmDFkBG4\/c=",
       "Microsoft.CSharp.dll": "sha256-6Y1rN8knL1K5x5lsZ2tEVDND2h4LtDSuVgCg1N8ghkA=",
       "Microsoft.VisualBasic.Core.dll": "sha256-LRJ4hN7opopr3bsogxcz7uyVjh4bNZOdMbVbIIQ9z+8=",
@@ -198,13 +202,13 @@
       "mscorlib.dll": "sha256-qqpKd+W+AFb6UxudEYEKzrz7ma81p5LrWUwPBVvHV4U=",
       "netstandard.dll": "sha256-OYYuPT3JUknj4LdYIa58zF7kDB3tCnLzjCSuhEjtKXM=",
       "System.Private.CoreLib.dll": "sha256-EVS7zPxPV\/41g2mzPwdXtwiigWxI\/SeAHme1IgyD6tc=",
-      "AppContas.Web.dll": "sha256-h8OPwc9G\/u8mzKwCAWbeZ+v3OtQvQdiWL9W41vEHjUg="
+      "AppContas.Web.dll": "sha256-bJcgwgvb4NpRcL9xi3vLjgceIMloe6dOi4Ms53\/UCaM="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "AppContas.Web.pdb": "sha256-VWqnH5yXN1JAYy5W\/I8jXr0je5+jGvpLkjieBpxvuvM="
+      "AppContas.Web.pdb": "sha256-rLpsnfXSFUqC3OzKCBErLOSMNzJKZuU7pkgVcgLnbk8="
     },
     "runtime": {
       "dotnet.7.0.5.20dmdnp2uh.js": "sha256-codB25EodaFEP43MDCfMBuKXU4LqurUKnQrpoMIFnPs=",
